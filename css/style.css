@@ -1,0 +1,8 @@
+/* ----Reset---- */
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+/* ----/Reset---- */
+body{ background-color:ghostwhite; font-family: 'Dancing Script', cursive;}
+h1{text-align: center; font-size: 36px;}
+h2{font-size: 24px;}
+.text{margin-top: 30px; border-bottom: 1px solid slategray;}
+.text p{font-size: 18px; font-weight: lighter;}
