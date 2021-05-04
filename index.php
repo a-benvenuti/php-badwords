@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
 $cit = "Come diceva Zarathustra: nella vita, che tu cammini e ti muovi, o siedi e aspetti, prima o poi uno stronzo lo incontri.";
 $badword = $_GET["badword"];
 // ?badword=stronzo
@@ -21,18 +25,20 @@ $badword = $_GET["badword"];
 
 <body>
     <h1>Censored</h1>
+    <?php if (empty($badword)) : ?>
     <div class="text">
         <h2>Testo Originale:</h2>
-        <p class="text__original"><?php echo $cit ?></p>
+        <p class="text__original"><?php echo $cit; ?></p>
     </div>
-    <?php if ($badword === "stronzo") : ?>
-        <div class="text">
-            <h2>Testo Censurato:</h2>
-            <p class="text__censored"><?php echo str_replace($badword, "***", $cit); ?></p>
-        </div>
+    <?php endif; ?>
+    <?php if (!empty($badword)) : ?>
+    <div class="text">
+        <h2>Testo Censurato:</h2>
+        <p class="text__censored"><?php echo str_replace($badword, "***", $cit); ?></p>
+    </div>
     <?php endif; ?>
     <div class="text">
-        <h2><?php echo 'Numero di caratteri: '  .strlen($cit)?></h2>
+        <h2><?php echo 'Numero di caratteri: '  . strlen($cit); ?></h2>
     </div>
 </body>
 
